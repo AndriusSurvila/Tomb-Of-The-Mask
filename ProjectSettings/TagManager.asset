@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Eat
+  - Wall
+  - Audio
   layers:
   - Default
   - TransparentFX

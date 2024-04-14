@@ -7,6 +7,12 @@ public class Player : MonoBehaviour
     Rigidbody2D rb;
     Vector2 input;
     public int moveSpeed = 20;
+    AudioSystem audioSystem;
+
+    private void Awake()
+    {
+        audioSystem = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioSystem>();
+    }
 
     void Start()
     {
@@ -16,6 +22,12 @@ public class Player : MonoBehaviour
     void Update()
     {
         var newInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+
+        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D))
+        {
+            audioSystem.PLaySounds(audioSystem.move);
+        }
+
         if (newInput != Vector2.zero && rb.velocity.magnitude < 0.1f)
         {
             input = newInput;
@@ -27,6 +39,15 @@ public class Player : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D other)
     {
+        if (other.gameObject.name.Contains("Star"))
+        {
+            audioSystem.PLaySounds(audioSystem.star);
+        }
+        else if (other.gameObject.name.Contains("Coin"))
+        {
+            audioSystem.PLaySounds(audioSystem.coin);
+        }
+        
         Destroy(other.gameObject);
     }
 }
