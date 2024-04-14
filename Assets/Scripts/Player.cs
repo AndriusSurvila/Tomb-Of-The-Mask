@@ -4,15 +4,24 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    // Start is called before the first frame update
+    Rigidbody2D rb;
+    Vector2 input;
+    public int moveSpeed = 20;
+
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        var newInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        if (newInput != Vector2.zero && rb.velocity.magnitude < 0.1f)
+        {
+            input = newInput;
+            transform.up = -input;
+        }
+
+        rb.velocity = input * moveSpeed;
     }
 }
