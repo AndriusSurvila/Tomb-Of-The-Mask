@@ -43,6 +43,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Coin
       objectReference: {fileID: 0}
+    - target: {fileID: -2253911629886400664, guid: bb20353db46c87a45a9aff56493400c4, type: 3}
+      propertyPath: m_TagString
+      value: Eat
+      objectReference: {fileID: 0}
     - target: {fileID: 3626916397498700004, guid: bb20353db46c87a45a9aff56493400c4, type: 3}
       propertyPath: m_SortingOrder
       value: 10
@@ -93,8 +97,61 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7878350319992209165, guid: bb20353db46c87a45a9aff56493400c4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4106692421213163853}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: -2253911629886400664, guid: bb20353db46c87a45a9aff56493400c4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4610419026658279699}
   m_SourcePrefab: {fileID: -8435245712485981826, guid: bb20353db46c87a45a9aff56493400c4, type: 3}
+--- !u!1 &267289042358202303 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -2253911629886400664, guid: bb20353db46c87a45a9aff56493400c4, type: 3}
+  m_PrefabInstance: {fileID: 7137614592596949207}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &4610419026658279699
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 267289042358202303}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.5}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.50000006, y: -2.5}
+    oldSize: {x: 0.16666667, y: 0.16666667}
+    newSize: {x: 0.16666667, y: 0.16666667}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.16666667, y: 0.16666666}
+  m_EdgeRadius: 0
 --- !u!4 &1033685482876880858 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7878350319992209165, guid: bb20353db46c87a45a9aff56493400c4, type: 3}
