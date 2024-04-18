@@ -121,8 +121,8 @@ ScriptedImporter:
   animatedSpriteImportData:
   - name: Coin_Frame_0
     originalName: 
-    pivot: {x: 0.50000006, y: -2.5}
-    alignment: 9
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -141,8 +141,8 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 4}
   - name: Coin_Frame_1
     originalName: 
-    pivot: {x: 0.50000006, y: -2.5}
-    alignment: 9
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2

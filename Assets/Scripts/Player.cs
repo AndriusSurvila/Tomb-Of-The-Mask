@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -8,6 +9,9 @@ public class Player : MonoBehaviour
     Vector2 input;
     public int moveSpeed = 20;
     AudioSystem audioSystem;
+    public GameObject landParticles;
+    public bool hasLanded;
+    public string nextLevelName;
 
     private void Awake()
     {
@@ -22,6 +26,16 @@ public class Player : MonoBehaviour
     void Update()
     {
         var newInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        if (Mathf.Abs(newInput.x) > 0 && Mathf.Abs(newInput.y) > 0)
+        {
+            newInput.y = 0;
+        }
+
+        if (rb.velocity.magnitude < 0.1f && !hasLanded && newInput != input)
+        {
+            Instantiate(landParticles, transform.position, Quaternion.identity);
+            hasLanded = true;
+        }
 
         if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D))
         {
@@ -32,6 +46,7 @@ public class Player : MonoBehaviour
         {
             input = newInput;
             transform.up = -input;
+            hasLanded = false;
         }
 
         rb.velocity = input * moveSpeed;
@@ -46,6 +61,10 @@ public class Player : MonoBehaviour
         else if (other.gameObject.name.Contains("Coin"))
         {
             audioSystem.PLaySounds(audioSystem.coin);
+        }
+        else if (other.gameObject.name.Contains("Final"))
+        {
+            SceneManager.LoadScene(nextLevelName);
         }
         
         Destroy(other.gameObject);
